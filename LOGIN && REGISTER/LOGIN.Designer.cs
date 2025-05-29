@@ -37,6 +37,7 @@
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            Siguiente_btn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -142,6 +143,16 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
+            // Siguiente_btn
+            // 
+            Siguiente_btn.Location = new Point(467, 303);
+            Siguiente_btn.Name = "Siguiente_btn";
+            Siguiente_btn.Size = new Size(75, 23);
+            Siguiente_btn.TabIndex = 8;
+            Siguiente_btn.Text = "Siguiente";
+            Siguiente_btn.UseVisualStyleBackColor = true;
+            Siguiente_btn.Click += button1_Click;
+            // 
             // LOGIN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -149,6 +160,7 @@
             BackColor = Color.Azure;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(571, 354);
+            Controls.Add(Siguiente_btn);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "LOGIN";
@@ -172,5 +184,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Button BotonRegister;
+        private Button Siguiente_btn;
     }
 }

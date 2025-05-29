@@ -29,33 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INVENTARIO));
-            dataGridView1 = new DataGridView();
             label1 = new Label();
             panel1 = new Panel();
+            label5 = new Label();
+            pictureBox1 = new PictureBox();
             Stock_btn = new Button();
-            Precio_txt = new TextBox();
+            txtPrecio = new TextBox();
             textbox = new Label();
             Agregar_btn = new Button();
-            Categoria_cmb = new ComboBox();
-            Stock_txt = new TextBox();
-            Producto_txt = new TextBox();
+            cmbCategoria = new ComboBox();
+            txtStock = new TextBox();
+            txtNombre = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
-            label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            lvwProductos = new ListView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(393, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(379, 412);
-            dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
@@ -72,19 +63,42 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(Stock_btn);
-            panel1.Controls.Add(Precio_txt);
+            panel1.Controls.Add(txtPrecio);
             panel1.Controls.Add(textbox);
             panel1.Controls.Add(Agregar_btn);
-            panel1.Controls.Add(Categoria_cmb);
-            panel1.Controls.Add(Stock_txt);
-            panel1.Controls.Add(Producto_txt);
+            panel1.Controls.Add(cmbCategoria);
+            panel1.Controls.Add(txtStock);
+            panel1.Controls.Add(txtNombre);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(364, 412);
+            panel1.Size = new Size(358, 412);
             panel1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Firebrick;
+            label5.Location = new Point(106, 10);
+            label5.Name = "label5";
+            label5.Size = new Size(158, 21);
+            label5.TabIndex = 12;
+            label5.Text = "HOME APPLIANCES";
+            label5.TextAlign = ContentAlignment.TopCenter;
+            label5.Click += label5_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(69, 268);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(218, 127);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
             // 
             // Stock_btn
             // 
@@ -95,12 +109,12 @@
             Stock_btn.Text = "Calcular Stock";
             Stock_btn.UseVisualStyleBackColor = true;
             // 
-            // Precio_txt
+            // txtPrecio
             // 
-            Precio_txt.Location = new Point(143, 155);
-            Precio_txt.Name = "Precio_txt";
-            Precio_txt.Size = new Size(206, 23);
-            Precio_txt.TabIndex = 9;
+            txtPrecio.Location = new Point(143, 155);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(206, 23);
+            txtPrecio.TabIndex = 9;
             // 
             // textbox
             // 
@@ -120,29 +134,31 @@
             Agregar_btn.TabIndex = 7;
             Agregar_btn.Text = "Agregar";
             Agregar_btn.UseVisualStyleBackColor = true;
+            Agregar_btn.Click += Agregar_btn_Click;
             // 
-            // Categoria_cmb
+            // cmbCategoria
             // 
-            Categoria_cmb.FormattingEnabled = true;
-            Categoria_cmb.Items.AddRange(new object[] { "Dispositivos de entretenimiento", "Dispositivos de comunicación", "Herramientas eléctricas y electrónicas", "Aparatos de intercambio de temperatura", "Computadoras" });
-            Categoria_cmb.Location = new Point(143, 85);
-            Categoria_cmb.Name = "Categoria_cmb";
-            Categoria_cmb.Size = new Size(206, 23);
-            Categoria_cmb.TabIndex = 6;
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Location = new Point(143, 85);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(206, 23);
+            cmbCategoria.TabIndex = 6;
+            cmbCategoria.SelectedIndexChanged += CmbCategoria_SelectedIndexChanged;
             // 
-            // Stock_txt
+            // txtStock
             // 
-            Stock_txt.Location = new Point(143, 120);
-            Stock_txt.Name = "Stock_txt";
-            Stock_txt.Size = new Size(206, 23);
-            Stock_txt.TabIndex = 5;
+            txtStock.Location = new Point(143, 120);
+            txtStock.Name = "txtStock";
+            txtStock.Size = new Size(206, 23);
+            txtStock.TabIndex = 5;
             // 
-            // Producto_txt
+            // txtNombre
             // 
-            Producto_txt.Location = new Point(143, 46);
-            Producto_txt.Name = "Producto_txt";
-            Producto_txt.Size = new Size(206, 23);
-            Producto_txt.TabIndex = 3;
+            txtNombre.Location = new Point(143, 46);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(206, 23);
+            txtNombre.TabIndex = 3;
+            txtNombre.TextChanged += TextProducto_TextChanged;
             // 
             // label4
             // 
@@ -176,42 +192,27 @@
             label2.Text = "Producto:";
             label2.Click += label2_Click;
             // 
-            // pictureBox1
+            // lvwProductos
             // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(69, 268);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(218, 127);
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Firebrick;
-            label5.Location = new Point(106, 10);
-            label5.Name = "label5";
-            label5.Size = new Size(158, 21);
-            label5.TabIndex = 12;
-            label5.Text = "HOME APPLIANCES";
-            label5.TextAlign = ContentAlignment.TopCenter;
-            label5.Click += label5_Click;
+            lvwProductos.Location = new Point(386, 22);
+            lvwProductos.Name = "lvwProductos";
+            lvwProductos.Size = new Size(490, 402);
+            lvwProductos.TabIndex = 13;
+            lvwProductos.UseCompatibleStateImageBehavior = false;
+            lvwProductos.SelectedIndexChanged += lvwProductos_SelectedIndexChanged;
             // 
             // INVENTARIO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(896, 431);
+            Controls.Add(lvwProductos);
             Controls.Add(panel1);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Name = "INVENTARIO";
             Text = "INVENTARIO";
             Load += INVENTARIO_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -220,21 +221,20 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label label1;
         private Panel panel1;
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox Precio_txt;
+        private TextBox txtPrecio;
         private Label textbox;
         private Button Agregar_btn;
-        private ComboBox Categoria_cmb;
-        private TextBox Stock_txt;
-        private TextBox Producto_txt;
+        private ComboBox cmbCategoria;
+        private TextBox txtStock;
+        private TextBox txtNombre;
         private Button Stock_btn;
         private Label label5;
         private PictureBox pictureBox1;
+        private ListView lvwProductos;
     }
 }
