@@ -44,5 +44,10 @@ namespace LOGIN____REGISTER
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

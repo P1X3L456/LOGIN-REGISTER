@@ -45,6 +45,7 @@
             // 
             // BotonIniciarSesion
             // 
+            BotonIniciarSesion.Anchor = AnchorStyles.Bottom;
             BotonIniciarSesion.BackColor = Color.Orange;
             BotonIniciarSesion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonIniciarSesion.ForeColor = Color.White;
@@ -58,6 +59,7 @@
             // 
             // textLogin
             // 
+            textLogin.Anchor = AnchorStyles.Top;
             textLogin.BorderStyle = BorderStyle.FixedSingle;
             textLogin.Location = new Point(123, 153);
             textLogin.Name = "textLogin";
@@ -68,6 +70,7 @@
             // 
             // textPassword
             // 
+            textPassword.Anchor = AnchorStyles.Top;
             textPassword.BorderStyle = BorderStyle.FixedSingle;
             textPassword.Location = new Point(123, 197);
             textPassword.Name = "textPassword";
@@ -77,6 +80,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackgroundImageLayout = ImageLayout.None;
             panel1.Controls.Add(BotonRegister);
             panel1.Controls.Add(pictureBox3);
@@ -93,6 +97,7 @@
             // 
             // BotonRegister
             // 
+            BotonRegister.Anchor = AnchorStyles.Bottom;
             BotonRegister.BackColor = Color.Orange;
             BotonRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonRegister.ForeColor = Color.White;
@@ -106,6 +111,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Anchor = AnchorStyles.Top;
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox3.Location = new Point(135, 3);
