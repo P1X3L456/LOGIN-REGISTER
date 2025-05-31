@@ -185,36 +185,7 @@ namespace LOGIN____REGISTER
 
         private void btnCalcularStock_Click_1(object sender, EventArgs e)
         {
-            if (cmbCategoria.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor selecciona una categoría primero.");
-                return;
-            }
 
-            Categoria categoriaSeleccionada = (Categoria)cmbCategoria.SelectedItem;
-            string categoriaNombre = categoriaSeleccionada.Nombre;
-
-            var productosCategoria = listaProductos.Where(p => p.Categoria.Nombre == categoriaNombre).ToList();
-
-            if (productosCategoria.Count == 0)
-            {
-                MessageBox.Show($"No hay productos en la categoría: {categoriaNombre}");
-                return;
-            }
-
-            int stockTotal = productosCategoria.Sum(p => p.Stock);
-
-            string mensaje = $"CATEGORÍA: {categoriaNombre}\n\n";
-            mensaje += $"Productos encontrados: {productosCategoria.Count}\n";
-            mensaje += $"Stock total: {stockTotal} unidades\n\n";
-            mensaje += "Detalle por producto:\n";
-
-            foreach (var producto in productosCategoria)
-            {
-                mensaje += $"• {producto.Nombre}: {producto.Stock} unidades\n";
-            }
-
-            MessageBox.Show(mensaje, "Stock de Categoría");
         }
     }
 }
